@@ -1,7 +1,8 @@
 on:
-  - push
-  - pull_request:
-    types: [opened, edited]
+  push:
+    branches: [ "**" ]
+  pull_request:
+    types: [opened, edited, synchronize]
 name: "c-tests"
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: false
+          submodules: recursive
 
       - name: Test
         run: |

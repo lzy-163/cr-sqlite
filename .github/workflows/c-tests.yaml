@@ -1,6 +1,6 @@
 on:
-  - push
-  - pull_request:
+  push:
+  pull_request:
     types: [opened, edited]
 name: "c-tests"
 jobs:
@@ -14,7 +14,7 @@ jobs:
           - os: windows-2022
           - os: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: false
 
